@@ -40,4 +40,4 @@ Client.on('message', message => {
         }while(args.length > 0);
     }
 })
-Client.login('ODg1MjYwMjk5OTc0ODgxMjkw.YTkc5g.LsjxvSUyvVU_tnHbgeHeb6_lOYk');
+Client.login('');
