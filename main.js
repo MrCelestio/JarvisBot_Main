@@ -25,19 +25,30 @@ Client.on('message', message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if(command == 'ping' || command == 'pong'){
+    if(command === 'ping' || command === 'pong'){
         Client.commands.get('ping').execute(message,command);
         
         
-    }
+    }else if(command === 'ban')
+    {
+        Client.commands.get('ban').execute(message, args);
 
-    if(command == 'ban'){
+    }else if(command === 'rules')
+    {
+        Client.commands.get('rules').execute(message, args, Discord);
 
-        do 
-        {
-            target = args.shift();
-            message.channel.send('Banning ' + target + '! Peace nerd ');
-        }while(args.length > 0);
+    }else if(command === 'mute')
+    {
+
+        Client.commands.get('mute').execute(message, args);
+    }else if(command === 'unmute')
+    {
+
+        Client.commands.get('unmute').execute(message, args);
+    }else if(command === 'timeout')
+    {
+
+        Client.commands.get('timeout').execute(message, args);
     }
 })
 Client.login('');
