@@ -19,8 +19,13 @@ module.exports = {
 
             let memberTarget = message.guild.members.cache.get(target.id);
             
-            if(!args[1]){
+            if(!args[1])
+            {
                 message.channel.send('Please apply a duration i.e. 30s');
+                return;
+            }else if (!ms(args[1]))
+            {
+                message.channel.send('Please enter valid syntax: j!timeout <target> <value>');
                 return;
             }
 
